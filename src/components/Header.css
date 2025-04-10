@@ -1,0 +1,53 @@
+.app-header {
+  background: linear-gradient(135deg, #4361ee, #3f37c9);
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list .active {
+  background-color: #4cc9f0;
+  color: #1b263b;
+  font-weight: 500;
+  border-color: transparent;
+}
