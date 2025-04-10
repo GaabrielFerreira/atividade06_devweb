@@ -1,38 +1,342 @@
+/* Estilos Globais Aprimorados */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a50d1;
+  --accent: #4cc9f0;
+  --dark: #1a2238;
+  --light: #f9fafb;
+  --gray: #e5e7eb;
+  --danger: #ef476f;
+  --success: #06d6a0;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* Header Aprimorado */
+.app-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  flex-wrap: wrap;
+}
+
+.nav-list a {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-list a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.nav-list a.active {
+  background-color: var(--accent);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* Containers de Página Aprimorados */
+.page-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin: 1.5rem auto;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+h2 {
+  color: var(--dark);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* Calculadora Ajustada */
+.calculator-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.calculator-display {
+  background-color: var(--light);
+  padding: 1.25rem;
+  font-size: 2rem;
+  font-family: 'Space Mono', monospace;
+  text-align: right;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--gray);
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.calc-btn {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--light);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.calc-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.calc-btn.operator {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.calc-btn.operator:hover {
+  background-color: var(--primary-dark);
+}
+
+.calc-btn.equals {
+  background-color: var(--accent);
+  color: var(--dark);
+  grid-row: span 2;
+  font-weight: 600;
+}
+
+.calc-btn.clear {
+  background-color: var(--danger);
+  color: white;
+  grid-column: span 2;
+}
+
+.calc-btn.zero {
+  grid-column: span 2;
+}
+
+/* To-Do List Aprimorada */
+.todo-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.todo-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 0.875rem;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.todo-input button {
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background-color: white;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.todo-item.completed {
+  border-left-color: var(--success);
+  opacity: 0.8;
+}
+
+/* Contador de Cliques Modernizado */
+.counter-container {
+  max-width: 400px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.counter-display {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 2rem 0;
+  font-family: 'Space Mono', monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Jogo da Velha Estilizado */
+.tic-tac-toe-container {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 2rem auto;
+  max-width: 300px;
+}
+
+.square {
+  width: 100%;
+  aspect-ratio: 1;
+  font-size: 3rem;
+  font-weight: 700;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: white;
+  border: 2px solid var(--gray);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-.App-link {
-  color: #61dafb;
+.square:hover {
+  background-color: var(--light);
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Buscador de CEP Aprimorado */
+.cep-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.cep-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cep-input input {
+  flex: 1;
+  padding: 0.875rem;
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.cep-result {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1.25rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .page-container {
+    padding: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav-list a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
   }
 }
